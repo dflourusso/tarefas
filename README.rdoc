@@ -1,0 +1,4 @@
+== Tarefas (TODO)
+
+Baseado neste exemplo:
+http://todomvc.com/architecture-examples/backbone/
