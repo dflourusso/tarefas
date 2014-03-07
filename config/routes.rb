@@ -3,6 +3,11 @@ Tarefas::Application.routes.draw do
     collection do
       get 'ativas'
       get 'concluidas'
+      delete 'destroy_concluidas'
+    end
+
+    member do
+      patch 'toogle'
     end
   end
   root 'tarefas#index'
