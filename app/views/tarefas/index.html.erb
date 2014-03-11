@@ -61,7 +61,7 @@
         </a>
       </li>
     </ul>
-    <% if @count_concluidas > 0 %>
+    <% unless @count_concluidas.zero? %>
     <a id="clear-completed"
        href="<%= concluidas_tarefas_path  %>"
        data-method="delete"
