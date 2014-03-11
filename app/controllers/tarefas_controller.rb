@@ -29,5 +29,13 @@ class TarefasController < ApplicationController
     tarefa.concluida = !tarefa.concluida
     tarefa.save
     redirect_to tarefas_path
+    end
+
+  def create
+    tarefa = Tarefa.new
+    tarefa.titulo = params[:tarefa]
+    tarefa.concluida = false
+    tarefa.save
+    redirect_to tarefas_path
   end
 end
