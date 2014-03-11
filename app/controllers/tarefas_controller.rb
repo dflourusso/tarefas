@@ -1,18 +1,18 @@
 class TarefasController < ApplicationController
   def index
     @tarefas = Tarefa.all
-    count_concluidas
+    count_all
   end
 
   def ativas
     @tarefas = Tarefa.where concluida: false
-    count_concluidas
+    count_all
     render :index
     end
 
   def concluidas
     @tarefas = Tarefa.where concluida: true
-    count_concluidas
+    count_all
     render :index
   end
 
@@ -42,8 +42,22 @@ class TarefasController < ApplicationController
 
 private
 
+  def count_all
+    count_concluidas
+    count_ativas
+    count_totais
+  end
+
   def count_concluidas
     @count_concluidas = Tarefa.where(concluida: true).count
+  end
+
+  def count_ativas
+    @count_ativas = Tarefa.where(concluida: false).count
+  end
+
+  def count_totais
+    @count_totais = Tarefa.all.count
   end
 
 end

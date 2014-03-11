@@ -3,7 +3,7 @@
   <header id="header">
     <h1>tarefas</h1>
 
-    <%= form_tag do %>
+    <%= form_tag tarefas_path do %>
       <input id="new-todo"
              placeholder="O que você precisa fazer?"
              name="tarefa"
@@ -43,21 +43,21 @@
       <li>
         <a class="<%= 'selected' if action_name == 'index' %>"
            href="<%= tarefas_path %>">
-              Todas
+              Todas (<%= @count_totais %>)
         </a>
       </li>
 
       <li>
         <a class="<%= 'selected' if action_name == 'ativas' %>"
               href="<%= ativas_tarefas_path %>">
-              Ativas
+              Ativas (<%= @count_ativas %>)
         </a>
       </li>
 
       <li>
         <a class="<%= 'selected' if action_name == 'concluidas' %>"
            href="<%= concluidas_tarefas_path %>">
-              Concluídas
+              Concluídas (<%= @count_concluidas %>)
         </a>
       </li>
     </ul>
@@ -66,7 +66,7 @@
        href="<%= concluidas_tarefas_path  %>"
        data-method="delete"
        data-confirm="Tem Certeza?">
-          Excluir Tarefas Concluídas (<%= @count_concluidas %>)
+          Excluir Concluídas (<%= @count_concluidas %>)
     </a>
   </footer>
 </section>
