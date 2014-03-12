@@ -46,11 +46,11 @@ private
   end
 
   def count_concluidas
-    @count_concluidas = Tarefa.where(concluida: true).count
+    @count_concluidas = Tarefa.concluidas.count
   end
 
   def count_ativas
-    @count_ativas = Tarefa.where(concluida: false).count
+    @count_ativas = Tarefa.ativas.count
   end
 
   def count_totais
