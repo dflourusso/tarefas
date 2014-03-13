@@ -37,6 +37,18 @@ class TarefasController < ApplicationController
     redirect_to tarefas_path
   end
 
+  def edit
+    @tarefa = Tarefa.find params[:id]
+    @tarefas = Tarefa.all
+    count_all
+    render :index
+  end
+
+  def update
+    Tarefa.update params[:id], titulo: params[:titulo]
+    redirect_to tarefas_path
+  end
+
 private
 
   def count_all
