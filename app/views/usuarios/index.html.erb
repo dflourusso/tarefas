@@ -15,6 +15,10 @@
         <td><%= usuario.id %></td>
         <td><%= usuario.nome %></td>
         <td><%= usuario.email %></td>
+        <td><a href="<%= usuario_path usuario %>"
+               data-method="delete"
+               data-confirm="Tem Certeza?"
+               class="destroy">excluir</a></td>
       </tr>
   <% end %>
   </tbody>
