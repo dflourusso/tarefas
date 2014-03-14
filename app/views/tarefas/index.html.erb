@@ -15,13 +15,13 @@
   <section id="main">
     <ul id="todo-list">
       <% for tarefa in @tarefas %>
-      <li class="<%= 'editing ' if tarefa == @tarefa %><%= 'completed' if tarefa.concluida? %>">
+      <li class="<%= 'editing' if @tarefa == tarefa%> <%= 'completed' if tarefa.concluida? %>">
         <div class="view">
           <a href="<%= toogle_tarefa_path tarefa %>"
              class="toggle"
              data-method="patch"></a>
 
-          <label><a href="<%= edit_tarefa_path tarefa %>"><%= tarefa.titulo %></a></label>
+          <label><a href="<%= edit_tarefa_path tarefa %>?list=<%= action_name %>"><%= tarefa.titulo %></a></label>
 
           <a href="<%= tarefa_path tarefa %>"
              data-method="delete"
@@ -29,7 +29,8 @@
              class="destroy"></a>
         </div>
             <%= form_for tarefa do %>
-                <input class="edit" name="titulo" value="<%= tarefa.titulo %>" autofocus>
+                <input type="hidden" name="list" value="<%= params[:list] || :index %>">
+                <input class="edit" name="titulo" value="<%= tarefa.titulo %>" autofocus required>
             <% end %>
       </li>
       <% end %>
