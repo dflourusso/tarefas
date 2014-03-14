@@ -1,4 +1,6 @@
 Tarefas::Application.routes.draw do
+  resources :usuarios
+
   resources :tarefas do
     collection do
       get 'ativas'
