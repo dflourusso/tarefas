@@ -19,4 +19,8 @@ class UsuariosController < ApplicationController
     usuario.destroy
     redirect_to usuarios_path
   end
+
+  def new
+    @usuario = Usuario.new
+  end
 end
