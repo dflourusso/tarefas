@@ -4,7 +4,7 @@ class UsuariosController < ApplicationController
   end
 
   def create
-    Usuario.create usuario_params
+    Usuario.create! usuario_params
     redirect_to usuarios_path
   end
 
@@ -31,7 +31,7 @@ class UsuariosController < ApplicationController
   private
 
   def usuario_params
-    params.require(:usuario).permit(:nome, :email, :password_digest)
+    params.require(:usuario).permit(:nome, :email, :password, :password_confirmation)
   end
 
 end
